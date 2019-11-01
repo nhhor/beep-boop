@@ -1,13 +1,11 @@
 // --- BUSINESS LOGIC---
 
 function numberBeepBoop(numberInput) {
-
   // CREATE RANGE ARRAY FROM 0 TO NUMBER INPUT:
   numberArray = [];
   for (var index = 0; index <= numberInput; index ++) {
     numberArray.push(index);
   }
-  // console.log("numberArray: ",numberArray);
 
   // ITERATE OVER NUMBERARRAY TO REPLACE 3S, 2S, AND 1S:
   beepBoopArray = [];
@@ -30,32 +28,26 @@ function numberBeepBoop(numberInput) {
   return beepBoopArray;
 }
 
+
 // USER LOGIC
 
 $(document).ready(function(){
   $("#userForm").submit(function(event){
     event.preventDefault();
 
-    // setTimeout(function(){
-      //   alert("test");
-      // }, 0);
-
-      $(".resultSection").slideUp(500);
-
-      // REMOVE ALL CHILDREN OF RESULT-LIST ON NEW SUBMIT:
+      // REMOVE ALL CHILDREN OF RESULT-LIST ON (NEW) SUBMIT:
       $("#resultList").children().remove();
 
-      // CAPTURE USER'S NUMBER:
+      // CAPTURE USER'S NUMBER (AND NAME):
       var numberInput = parseInt($("#userNumber").val());
       var nameInput = $("#userName").val();
 
       // CALL BUSINESS LOGIC TO RETURN ARRAY:
       numberBeepBoop(numberInput);
 
-      console.log("beepBoopArray: ",beepBoopArray);
-
-      // RETURN ARRAY TO DOM:
+      // RETURN ARRAY TO DOM FUNCTION TO BE CALLED:
       function printArray(array){
+        $(".resultSection").slideUp(500);
         array.forEach(function(number,index){
           if (number === "I'm sorry, Dave. I'm afraid I can't do that.") {
             if (nameInput === "") {
@@ -75,20 +67,25 @@ $(document).ready(function(){
             $("#resultList").append("<li class='normal'>"+": "+number+"</li>");
           }
         });
+        $(".resultSection").slideDown(1000);
+
       }
 
+
+
+      // CALL PRINTARRAY FUNCTION TO DISPLAY IN DOM FOR BEEPBOOPARRAY:
       printArray(beepBoopArray);
-
-      $(".resultSection").slideDown(1000);
-
       $(".remixButton").fadeIn(2000);
 
+      // REVERSE DOM DISPLAY OF ARRAY:
       $(".remixButton").click(function(){
-        // event.preventDefault();
-        var beepBoopArrayReversed = beepBoopArray.reverse();
         $("#resultList").children().remove();
-        printArray(beepBoopArrayReversed);
+        printArray(beepBoopArray.reverse());
       });
+
+
+
+
 
 
       // WORKING CODE BEFORE TESTS:
@@ -111,11 +108,6 @@ $(document).ready(function(){
       //     $("#resultList").append("<li class='normal'>"+index+": "+number+"</li>");
       //   }
       // });
-
-
-
-
-
 
     });
   });
