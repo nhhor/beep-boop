@@ -1,3 +1,7 @@
+body {
+  background: linear-gradient(90deg, rgba(255,255,255,0) 95%, rgba(0,128,128,0.5) 100%); 
+}
+
 .form-row {
   text-align: center;
 }
@@ -26,12 +30,12 @@
 
 .beep {
   color: green;
-  font-family: sans-serif;
+  font-family: serif;
 }
 
 .boop {
   color: blue;
-  font-family: serif;
+  font-family: sans-serif;
 }
 
 .dave {

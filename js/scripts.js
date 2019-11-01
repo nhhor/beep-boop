@@ -24,7 +24,7 @@ function numberBeepBoop(numberInput) {
     }
   });
 
-  console.log("beepBoopArray: ",beepBoopArray);
+  // console.log("beepBoopArray: ",beepBoopArray);
   return beepBoopArray;
 }
 
@@ -41,10 +41,7 @@ $(document).ready(function(){
       var numberInput = parseInt($("#userNumber").val());
       var nameInput = $("#userName").val();
 
-      // CALL BUSINESS LOGIC TO RETURN ARRAY:
-      // numberBeepBoop(numberInput);
-
-      // RETURN ARRAY TO DOM FUNCTION TO BE CALLED:
+      // FUNCTION RETURNS ARRAY TO DOM WHEN CALLED:
       function printArray(array){
         $("#resultList").children().remove();
         array.forEach(function(number,index){
@@ -83,6 +80,7 @@ $(document).ready(function(){
         // $(".resultSection").slideUp(500);
         printArray(beepBoopArray.reverse());
         // $(".resultSection").slideDown(1000);
+
       });
 
 
