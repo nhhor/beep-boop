@@ -2,6 +2,10 @@ body {
   background: linear-gradient(0deg, rgba(0,128,128,.5) 0%, rgba(255,255,255,0) 3%, rgba(255,255,255,0) 60%, rgba(0,128,128,0.5) 100%);
 }
 
+p pre {
+  margin-bottom: 0px;
+}
+
 .initialSpaceSection {
   margin-bottom: 75%;
 }

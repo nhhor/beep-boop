@@ -68,19 +68,31 @@ $(document).ready(function(){
 
 
     setTimeout(() => {
-      $("#delay1").fadeIn(1000);
-      $(".initialSpaceSection").slideUp(500);
-      $(".resultSection").slideUp(500);
+      $("#delay1").animate({
+        width: [ "toggle", "swing" ],
+        height: [ "toggle", "swing" ],
+        opacity: "toggle"
+      }, 1000, "linear");
+      $(".initialSpaceSection").slideUp(1000);
+      $(".resultSection").slideUp(1000);
     }, 500);
 
+
+
     setTimeout(() => {
-      $("#delay2").fadeIn(1000);
-      $(".resultSection").slideDown();
+      $("#delay2").animate({
+        width: [ "toggle", "swing" ],
+        height: [ "toggle", "swing" ],
+        opacity: "toggle"
+      }, 1000, "linear");      $(".resultSection").slideDown();
     }, 1000);
 
     setTimeout(() => {
-      $("#delay3").fadeIn(1000);
-      $(".remixButton").fadeIn(2000);
+      $("#delay3").animate({
+        width: [ "toggle", "swing" ],
+        height: [ "toggle", "swing" ],
+        opacity: "toggle"
+      }, 1000, "linear");      $(".remixButton").fadeIn(2000);
     }, 1500);
 
     setTimeout(() => {
@@ -95,10 +107,26 @@ $(document).ready(function(){
       printArray(numberBeepBoop(numberInput).reverse());
       $("body").css("background","linear-gradient(0deg, rgba(255,128,128,.5) 0%, rgba(255,255,255,0) 3%, rgba(255,255,255,0) 60%, rgba(255,128,128,0.5) 100%)");
     });
-    $("#delay1").fadeOut();
-    $("#delay2").fadeOut();
-    $("#delay3").fadeOut();
-  }, 3000);
+
+    $("#delay1").animate({
+      width: [ "toggle", "swing" ],
+      height: [ "toggle", "swing" ],
+      opacity: "toggle"
+    }, 1000, "linear");
+
+    $("#delay2").animate({
+      width: [ "toggle", "swing" ],
+      height: [ "toggle", "swing" ],
+      opacity: "toggle"
+    }, 1000, "linear");
+
+    $("#delay3").animate({
+      width: [ "toggle", "swing" ],
+      height: [ "toggle", "swing" ],
+      opacity: "toggle"
+    }, 1000, "linear");
+
+  }, 2000);
 
   });
 });

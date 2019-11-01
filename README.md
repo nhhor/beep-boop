@@ -36,6 +36,8 @@ None
 |(Rule for exceptions) The exceptions are written from least to most important. The first exception should apply unless the second exception does, and the same with the second and third.|13|`...`, `I'm sorry, Dave. I'm afraid I can't do that.`|
 |A user should be able to enter a new number and see new results over and over again.|4 ... 4|`0`, `Beep!`, `Boop!`, `I'm sorry, Dave. I'm afraid I can't do that.`, `4` (not repeated twice on the DOM)|
 
+## References
+* Animation referenced from [jquery documentation examples](https://api.jquery.com/animate/)
 
 ## Support and contact details
 Contact [example@sample.com](mailto:example@sample.com)
