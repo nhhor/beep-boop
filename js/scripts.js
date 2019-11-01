@@ -7,7 +7,7 @@ function numberBeepBoop(numberInput) {
   for (var index = 0; index <= numberInput; index ++) {
     numberArray.push(index);
   }
-  console.log("numberArray: ",numberArray);
+  // console.log("numberArray: ",numberArray);
 
   // ITERATE OVER NUMBERARRAY TO REPLACE 3S, 2S, AND 1S:
   beepBoopArray = [];
@@ -36,8 +36,11 @@ $(document).ready(function(){
   $("#userForm").submit(function(event){
     event.preventDefault();
 
+
+    $(".resultSection").slideUp(500);
     // REMOVE ALL CHILDREN OF RESULT-LIST ON NEW SUBMIT:
     $("#resultList").children().remove();
+
 
     // CAPTURE USER'S NUMBER:
     var numberInput = parseInt($("#userNumber").val());
@@ -59,9 +62,9 @@ $(document).ready(function(){
       else {
         $("#resultList").append("<li class='normal'>"+index+": "+number+"</li>");
       }
-      });
+    });
 
-
+    $(".resultSection").slideDown(1000);
 
   });
 });

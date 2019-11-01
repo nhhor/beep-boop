@@ -1,3 +1,36 @@
+.form-row {
+  text-align: center;
+}
+
+.btn {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.resultSection {
+  display: none;
+}
+
 .centered {
   text-align: center;
+}
+
+.normal {
+  color: black;
+  font-family: monospace;
+}
+
+.beep {
+  color: green;
+  font-family: sans-serif;
+}
+
+.boop {
+  color: blue;
+  font-family: serif;
+}
+
+.dave {
+  color: red;
+  font-family: fantasy;
 }
