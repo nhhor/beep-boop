@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <title>Beep Boop Loop</title>
     <meta charset="utf-8">
-    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/jquery-3.4.1.js" charset="utf-8"></script>
+    <script src="js/scripts.js" charset="utf-8"></script>
+
   </head>
   <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1 class="centered">Beep Boop Loop</h1>
+      </div>
+      <form id="userForm">
+        <div class="form-group">
+          <label for="userNumber">Please enter a number</label>
+          <input id="userNumber" class="form-control" type="number" name="userNumber">
+        </div>
+        <button class="btn btn-danger" type="submit">Submit</button>
+      </form>
+      <div class="resultSection">
+        <p>Entering beep boop loop, stand by...</p>
+        <ul id="resultList">
 
+        </ul>
+      </div>
+    </div>
   </body>
 </html>
