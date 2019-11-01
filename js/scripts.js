@@ -1,18 +1,17 @@
-// BUSINESS LOGIC
-numberInput = "";
+// --- BUSINESS LOGIC---
 
 // NUMBER TO RANGE:
-numberArray = [];
-function numberToRange(numberInput) {
+function numberBeepBoop(numberInput) {
+  numberArray = [];
   for (var index = 0; index <= numberInput; index ++) {
     numberArray.push(index);
   }
+  console.log(numberArray);
+
+
+
+  return numberArray;
 }
-
-
-function test(numberArray.forEach(number)) {
-  console.log(number);
-});
 
 // USER LOGIC
 
@@ -22,12 +21,15 @@ $(document).ready(function(){
 
     var numberInput = $("#userNumber").val();
 
-    numberToRange(numberInput);
-    test();
+    // CALL BUSINESS LOGIC TO RETURN ARRAY:
+    numberBeepBoop(numberInput);
 
-    console.log(numberArray);
+    // RETURN ARRAY TO DOM:
+    numberArray.forEach(function(number){
+        $("#resultList").append("<li>"+number+"</li>");
+      });
 
-    $("#resultList").append("<li>"+numberInput+"</li>");
+
 
   });
 });
