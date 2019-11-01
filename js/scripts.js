@@ -46,8 +46,19 @@ $(document).ready(function(){
     numberBeepBoop(numberInput);
 
     // RETURN ARRAY TO DOM:
-    beepBoopArray.forEach(function(number){
-        $("#resultList").append("<li>"+number+"</li>");
+    beepBoopArray.forEach(function(number,index){
+      if (number === "I'm sorry, Dave. I'm afraid I can't do that.") {
+        $("#resultList").append("<li class='dave'>"+index+": "+number+"</li>");
+      }
+      else if (number === "Boop!") {
+        $("#resultList").append("<li class='boop'>"+index+": "+number+"</li>");
+      }
+      else if (number === "Beep!") {
+        $("#resultList").append("<li class='beep'>"+index+": "+number+"</li>");
+      }
+      else {
+        $("#resultList").append("<li class='normal'>"+index+": "+number+"</li>");
+      }
       });
 
 
