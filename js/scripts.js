@@ -36,6 +36,10 @@ $(document).ready(function(){
   $("#userForm").submit(function(event){
     event.preventDefault();
 
+    setTimeout(function(){
+      alert("test");
+    }, 5000);
+
 
     $(".resultSection").slideUp(500);
     // REMOVE ALL CHILDREN OF RESULT-LIST ON NEW SUBMIT:
