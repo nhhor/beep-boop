@@ -44,6 +44,8 @@ $(document).ready(function(){
 
     // CAPTURE USER'S NUMBER:
     var numberInput = parseInt($("#userNumber").val());
+    var nameInput = $("#userName").val();
+
 
     // CALL BUSINESS LOGIC TO RETURN ARRAY:
     numberBeepBoop(numberInput);
@@ -51,7 +53,12 @@ $(document).ready(function(){
     // RETURN ARRAY TO DOM:
     beepBoopArray.forEach(function(number,index){
       if (number === "I'm sorry, Dave. I'm afraid I can't do that.") {
-        $("#resultList").append("<li class='dave'>"+index+": "+number+"</li>");
+        if (nameInput === "") {
+          $("#resultList").append("<li class='dave'>"+index+": "+number+"</li>");
+        }
+        else {
+          $("#resultList").append("<li class='dave'>"+index+": "+number.slice(0,11)+nameInput+number.slice(-29,number.length)+"</li>");
+        }
       }
       else if (number === "Boop!") {
         $("#resultList").append("<li class='boop'>"+index+": "+number+"</li>");
