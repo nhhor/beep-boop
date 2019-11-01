@@ -36,18 +36,17 @@ $(document).ready(function(){
     event.preventDefault();
 
       // REMOVE ALL CHILDREN OF RESULT-LIST ON (NEW) SUBMIT:
-      $("#resultList").children().remove();
 
       // CAPTURE USER'S NUMBER (AND NAME):
       var numberInput = parseInt($("#userNumber").val());
       var nameInput = $("#userName").val();
 
       // CALL BUSINESS LOGIC TO RETURN ARRAY:
-      numberBeepBoop(numberInput);
+      // numberBeepBoop(numberInput);
 
       // RETURN ARRAY TO DOM FUNCTION TO BE CALLED:
       function printArray(array){
-        $(".resultSection").slideUp(500);
+        $("#resultList").children().remove();
         array.forEach(function(number,index){
           if (number === "I'm sorry, Dave. I'm afraid I can't do that.") {
             if (nameInput === "") {
@@ -67,20 +66,23 @@ $(document).ready(function(){
             $("#resultList").append("<li class='normal'>"+": "+number+"</li>");
           }
         });
-        $(".resultSection").slideDown(1000);
+      };
 
-      }
 
 
 
       // CALL PRINTARRAY FUNCTION TO DISPLAY IN DOM FOR BEEPBOOPARRAY:
-      printArray(beepBoopArray);
+      $(".resultSection").slideUp(500);
+      printArray(numberBeepBoop(numberInput));
+      $(".resultSection").slideDown(1000);
       $(".remixButton").fadeIn(2000);
 
       // REVERSE DOM DISPLAY OF ARRAY:
       $(".remixButton").click(function(){
-        $("#resultList").children().remove();
+        // $("#resultList").children().remove();
+        // $(".resultSection").slideUp(500);
         printArray(beepBoopArray.reverse());
+        // $(".resultSection").slideDown(1000);
       });
 
 
