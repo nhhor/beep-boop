@@ -34,6 +34,7 @@ None
 |(Exception 2) Numbers that contain a 2: all digits are replaced (all digits) with "Boop!"|2|`0`, `Beep!`, `Boop!`|
 |(Exception 3) Numbers that contain a 3: all digits are replaced (all digits) with "I'm sorry, Dave. I'm afraid I can't do that."|4|`0`, `Beep!`, `Boop!`, `I'm sorry, Dave. I'm afraid I can't do that.`, `4`|
 |(Rule for exceptions) The exceptions are written from least to most important. The first exception should apply unless the second exception does, and the same with the second and third.|13|`...`, `I'm sorry, Dave. I'm afraid I can't do that.`|
+|A user should be able to enter a new number and see new results over and over again.|4 ... 4|`0`, `Beep!`, `Boop!`, `I'm sorry, Dave. I'm afraid I can't do that.`, `4` (not repeated twice on the DOM)|
 
 
 ## Support and contact details
