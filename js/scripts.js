@@ -28,7 +28,6 @@ function numberBeepBoop(numberInput) {
   return beepBoopArray;
 }
 
-
 // USER LOGIC
 
 $(document).ready(function(){
@@ -49,8 +48,11 @@ $(document).ready(function(){
             if (nameInput === "") {
               $("#resultList").append("<li class='dave'>"+": "+number+"</li>");
             }
-            else {
+            else if (index % 3 === 0) {
               $("#resultList").append("<li class='dave'>"+": "+number.slice(0,11)+nameInput+number.slice(-29,number.length)+"</li>");
+            }
+            else {
+              $("#resultList").append("<li class='dave'>"+": "+number+"</li>");
             }
           }
           else if (number === "Boop!") {
@@ -65,49 +67,25 @@ $(document).ready(function(){
         });
       };
 
-
-
-
       // CALL PRINTARRAY FUNCTION TO DISPLAY IN DOM FOR BEEPBOOPARRAY:
       $(".resultSection").slideUp(500);
       printArray(numberBeepBoop(numberInput));
       $(".resultSection").slideDown(1000);
       $(".remixButton").fadeIn(2000);
+      $("body").css("background","linear-gradient(0deg, rgba(0,128,128,.5) 0%, rgba(255,255,255,0) 5%, rgba(255,255,255,0) 60%, rgba(0,128,128,0.5) 100%)");
+
 
       // REVERSE DOM DISPLAY OF ARRAY:
       $(".remixButton").click(function(){
-        // $("#resultList").children().remove();
-        // $(".resultSection").slideUp(500);
-        printArray(beepBoopArray.reverse());
-        // $(".resultSection").slideDown(1000);
+        // printArray(beepBoopArray.reverse());
+        printArray(numberBeepBoop(numberInput).reverse());
+        $("body").css("background","linear-gradient(0deg, rgba(255,128,128,.5) 0%, rgba(255,255,255,0) 5%, rgba(255,255,255,0) 60%, rgba(255,128,128,0.5) 100%)");
+
+
+
+
 
       });
-
-
-
-
-
-
-      // WORKING CODE BEFORE TESTS:
-      // beepBoopArray.forEach(function(number,index){
-      //   if (number === "I'm sorry, Dave. I'm afraid I can't do that.") {
-      //     if (nameInput === "") {
-      //       $("#resultList").append("<li class='dave'>"+index+": "+number+"</li>");
-      //     }
-      //     else {
-      //       $("#resultList").append("<li class='dave'>"+index+": "+number.slice(0,11)+nameInput+number.slice(-29,number.length)+"</li>");
-      //     }
-      //   }
-      //   else if (number === "Boop!") {
-      //     $("#resultList").append("<li class='boop'>"+index+": "+number+"</li>");
-      //   }
-      //   else if (number === "Beep!") {
-      //     $("#resultList").append("<li class='beep'>"+index+": "+number+"</li>");
-      //   }
-      //   else {
-      //     $("#resultList").append("<li class='normal'>"+index+": "+number+"</li>");
-      //   }
-      // });
 
     });
   });
