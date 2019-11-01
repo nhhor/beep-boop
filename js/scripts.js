@@ -24,7 +24,6 @@ function numberBeepBoop(numberInput) {
     }
   });
 
-  // console.log("beepBoopArray: ",beepBoopArray);
   return beepBoopArray;
 }
 
@@ -34,58 +33,72 @@ $(document).ready(function(){
   $("#userForm").submit(function(event){
     event.preventDefault();
 
+    // CAPTURE USER'S NUMBER (AND NAME):
+    var numberInput = parseInt($("#userNumber").val());
+    var nameInput = $("#userName").val();
+
+    // FUNCTION RETURNS ARRAY TO DOM WHEN CALLED:
+    function printArray(array){
       // REMOVE ALL CHILDREN OF RESULT-LIST ON (NEW) SUBMIT:
+      $("#resultList").children().remove();
 
-      // CAPTURE USER'S NUMBER (AND NAME):
-      var numberInput = parseInt($("#userNumber").val());
-      var nameInput = $("#userName").val();
-
-      // FUNCTION RETURNS ARRAY TO DOM WHEN CALLED:
-      function printArray(array){
-        $("#resultList").children().remove();
-        array.forEach(function(number,index){
-          if (number === "I'm sorry, Dave. I'm afraid I can't do that.") {
-            if (nameInput === "") {
-              $("#resultList").append("<li class='dave'>"+": "+number+"</li>");
-            }
-            else if (index % 3 === 0) {
-              $("#resultList").append("<li class='dave'>"+": "+number.slice(0,11)+nameInput+number.slice(-29,number.length)+"</li>");
-            }
-            else {
-              $("#resultList").append("<li class='dave'>"+": "+number+"</li>");
-            }
+      array.forEach(function(number,index){
+        if (number === "I'm sorry, Dave. I'm afraid I can't do that.") {
+          if (nameInput === "") {
+            $("#resultList").append("<li class='dave'>"+": "+number+"</li>");
           }
-          else if (number === "Boop!") {
-            $("#resultList").append("<li class='boop'>"+": "+number+"</li>");
-          }
-          else if (number === "Beep!") {
-            $("#resultList").append("<li class='beep'>"+": "+number+"</li>");
+          else if (index % 3 === 0) {
+            $("#resultList").append("<li class='dave'>"+": "+number.slice(0,11)+nameInput+number.slice(-29,number.length)+"</li>");
           }
           else {
-            $("#resultList").append("<li class='normal'>"+": "+number+"</li>");
+            $("#resultList").append("<li class='dave'>"+": "+number+"</li>");
           }
-        });
-      };
-
-      // CALL PRINTARRAY FUNCTION TO DISPLAY IN DOM FOR BEEPBOOPARRAY:
-      $(".resultSection").slideUp(500);
-      printArray(numberBeepBoop(numberInput));
-      $(".resultSection").slideDown(1000);
-      $(".remixButton").fadeIn(2000);
-      $("body").css("background","linear-gradient(0deg, rgba(0,128,128,.5) 0%, rgba(255,255,255,0) 5%, rgba(255,255,255,0) 60%, rgba(0,128,128,0.5) 100%)");
-
-
-      // REVERSE DOM DISPLAY OF ARRAY:
-      $(".remixButton").click(function(){
-        // printArray(beepBoopArray.reverse());
-        printArray(numberBeepBoop(numberInput).reverse());
-        $("body").css("background","linear-gradient(0deg, rgba(255,128,128,.5) 0%, rgba(255,255,255,0) 5%, rgba(255,255,255,0) 60%, rgba(255,128,128,0.5) 100%)");
-
-
-
-
-
+        }
+        else if (number === "Boop!") {
+          $("#resultList").append("<li class='boop'>"+": "+number+"</li>");
+        }
+        else if (number === "Beep!") {
+          $("#resultList").append("<li class='beep'>"+": "+number+"</li>");
+        }
+        else {
+          $("#resultList").append("<li class='normal'>"+": "+number+"</li>");
+        }
       });
+    };
 
+
+    setTimeout(() => {
+      $("#delay1").fadeIn(1000);
+      $(".initialSpaceSection").slideUp(500);
+      $(".resultSection").slideUp(500);
+    }, 500);
+
+    setTimeout(() => {
+      $("#delay2").fadeIn(1000);
+      $(".resultSection").slideDown();
+    }, 1000);
+
+    setTimeout(() => {
+      $("#delay3").fadeIn(1000);
+      $(".remixButton").fadeIn(2000);
+    }, 1500);
+
+    setTimeout(() => {
+
+    // CALL PRINTARRAY FUNCTION TO DISPLAY IN DOM FOR BEEPBOOPARRAY:
+    printArray(numberBeepBoop(numberInput));
+    $("body").css("background","linear-gradient(0deg, rgba(0,128,128,.5) 0%, rgba(255,255,255,0) 3%, rgba(255,255,255,0) 60%, rgba(0,128,128,0.5) 100%)");
+
+    // REVERSE DOM DISPLAY OF ARRAY:
+    $(".remixButton").click(function(){
+      // printArray(beepBoopArray.reverse());
+      printArray(numberBeepBoop(numberInput).reverse());
+      $("body").css("background","linear-gradient(0deg, rgba(255,128,128,.5) 0%, rgba(255,255,255,0) 3%, rgba(255,255,255,0) 60%, rgba(255,128,128,0.5) 100%)");
     });
+    $("#delay1").fadeOut();
+    $("#delay2").fadeOut();
+    $("#delay3").fadeOut();
+  }, 3000);
+
   });
+});
