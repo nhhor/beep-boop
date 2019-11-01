@@ -1,13 +1,15 @@
 // --- BUSINESS LOGIC---
 
-// NUMBER TO RANGE:
 function numberBeepBoop(numberInput) {
+
+  // CREATE RANGE ARRAY FROM 0 TO NUMBER INPUT:
   numberArray = [];
   for (var index = 0; index <= numberInput; index ++) {
     numberArray.push(index);
   }
   console.log("numberArray: ",numberArray);
 
+  // ITERATE OVER NUMBERARRAY TO REPLACE 3S, 2S, AND 1S:
   beepBoopArray = [];
   numberArray.forEach(function(number){
     if (number.toString().includes("3") === true) {
@@ -34,6 +36,10 @@ $(document).ready(function(){
   $("#userForm").submit(function(event){
     event.preventDefault();
 
+    // REMOVE ALL CHILDREN OF RESULT-LIST ON NEW SUBMIT:
+    $("#resultList").children().remove();
+
+    // CAPTURE USER'S NUMBER:
     var numberInput = parseInt($("#userNumber").val());
 
     // CALL BUSINESS LOGIC TO RETURN ARRAY:
